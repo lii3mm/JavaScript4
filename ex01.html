@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Soma dos elementos pares em um array </title>
+</head>
+<body>
+    <label for="num"> Digite os números: </label>
+    <input type="text" id="num" placeholder="Ex.: 10, 20, 30, 40, 50">
+    <button onclick="somaPares()"> Calcular </button>
+    <p id="resultado"></p>
+
+    <script>
+        const somaPares = () => {
+            const input = document.getElementById("num").value;
+            const num = input.split(',').map(num => parseFloat(num.trim())); //String para array
+
+            const pares = num.filter(num => num % 2 == 0);
+
+            if (pares.length > 0){
+                var soma = pares.reduce((acc, pares) => acc + pares, 0); //Calcula a soma dos números
+                document.getElementById("resultado").innerHTML = "Soma dos números pares é: " + soma; //Juntar os elementos do array em uma ÚNICA String (.join)
+            } else {
+                document.getElementById("resultado").innerHTML = "Não há números pares";
+            }
+        }
+    </script>
+</body>
+</html>
